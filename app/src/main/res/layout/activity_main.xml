@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@drawable/background_2">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        android:text="盲人导航眼镜"
+        android:textColor="#ffffff"
+        android:textSize="58sp"/>
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:layout_below="@id/tv_title"
+        android:text="开始导航"
+        android:background="#7066ccff"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/btn_start"
+        android:text="使用说明"
+        android:background="#7066ccff"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_control"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_instruction"
+        android:layout_marginTop="40dp"
+        android:background="#7066ccff"
+        android:text="设置"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_test"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_below="@id/btn_control"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="test"-->
+<!--        android:background="#7066ccff"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:textSize="24sp"/>-->
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_2">
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="导航运行中"
+        android:layout_marginTop="120dp"
+        android:textSize="48sp"
+        android:textColor="#ffffff"
+        android:gravity="center"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/img_1"-->
+<!--        android:layout_below="@id/tv_1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="180dp"-->
+<!--        android:background="#000000">-->
+<!--    </ImageView>-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="这里本来是图片，只不过src中链接还没写好，先放一个imageview进去"-->
+<!--        android:layout_below="@id/tv_1"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:gravity="center"/>-->
+
+    <Button
+        android:id="@+id/btn_end"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/tv_1"
+        android:layout_marginTop="180dp"
+        android:text="结束导航"
+        android:background="#7066ccff"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btn_start_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"/>
+</RelativeLayout>
