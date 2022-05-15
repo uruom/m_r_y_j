@@ -18,9 +18,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private TextView m_title;
-    private Button mBtnstart,mBtn_instruction,mBtn_control,mBtn_test;
+    private Button mBtn_start,mBtn_instruction,mBtn_control,mBtn_test;
     private Intent intent;
-    private boolean isServiceRuning(final String className){
+    private boolean isServiceRunning(final String className){
         ActivityManager activityManager =(ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningServiceInfo> info =activityManager.getRunningServices(Integer.MAX_VALUE);
         if(info==null||info.size()==0) return false;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //      音乐
-        if(isServiceRuning("com.example.m_r_y_j.MyService")==false){
+        if(isServiceRunning("com.example.m_r_y_j.MyService")==false){
             intent= new Intent(MainActivity.this,MyIntentService.class);
             String action = MyIntentService.ACTION_MUSIC;
             intent.setAction(action);
@@ -55,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
         m_title = (TextView) findViewById(R.id.tv_title);
         mBtn_instruction = (Button) findViewById(R.id.btn_instruction);
         mBtn_control = (Button) findViewById(R.id.btn_control);
-        mBtnstart = (Button) findViewById(R.id.btn_start);
+        mBtn_start = (Button) findViewById(R.id.btn_start);
 //        mBtn_test = (Button) findViewById(R.id.btn_test);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"font/ziti_1.ttf");
         m_title.setTypeface(typeface);
-        mBtnstart.setTypeface(typeface);
+        mBtn_start.setTypeface(typeface);
         mBtn_instruction.setTypeface(typeface);
         mBtn_control.setTypeface(typeface);
-        mBtnstart.setOnClickListener(new View.OnClickListener() {
+        mBtn_start.setOnClickListener(new View.OnClickListener() {
             //——————————————————————
             //private Button mBtnend;
             //------
