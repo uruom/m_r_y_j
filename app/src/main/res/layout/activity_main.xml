@@ -14,14 +14,15 @@
         android:text="盲人导航眼镜"
         android:textColor="#ffffff"
         android:textSize="58sp"/>
+
     <Button
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="180dp"
         android:layout_below="@id/tv_title"
-        android:text="开始导航"
+        android:layout_marginTop="180dp"
         android:background="#7066ccff"
+        android:text="开始导航"
         android:textColor="#ffffff"
         android:textSize="24sp" />
     <Button
@@ -43,6 +44,17 @@
         android:layout_marginTop="40dp"
         android:background="#7066ccff"
         android:text="设置"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_start_test"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="100dp"
+        android:background="#7066ccff"
+        android:text="开始导航test"
         android:textColor="#ffffff"
         android:textSize="24sp" />
 <!--    <Button-->
