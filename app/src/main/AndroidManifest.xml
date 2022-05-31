@@ -11,7 +11,7 @@
         android:theme="@style/Theme.M_r_y_j">
 
         <activity
-            android:name=".ControlActivity"
+            android:name=".SettingActivity"
             android:exported="false" />
         <activity
             android:name=".InstructionActivity"

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         //跳转到设置界面
         mBtn_settings.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this,ControlActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(intent);
         });
     }

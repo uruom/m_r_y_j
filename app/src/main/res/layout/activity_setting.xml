@@ -3,23 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_2">
+
     <TextView
         android:id="@+id/tv_control_title"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="设置"
+        android:text="@string/settings"
         android:layout_marginTop="80dp"
         android:textColor="#ffffff"
         android:textSize="58sp"
         android:gravity="center"/>
-    <Button
-        android:id="@+id/btn_control_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="返回"
-        android:textSize="24sp"
-        android:background="#00000000"/>
 
 </RelativeLayout>
