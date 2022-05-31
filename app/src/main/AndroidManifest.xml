@@ -9,12 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.M_r_y_j">
-        <service
-            android:name=".MyIntentService2"
-            android:exported="false"/>
-        <service
-            android:name=".MyIntentService"
-            android:exported="false" />
 
         <activity
             android:name=".TestActivity"
