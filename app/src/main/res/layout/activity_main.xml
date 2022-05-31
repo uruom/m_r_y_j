@@ -11,7 +11,7 @@
         android:layout_height="80dp"
         android:gravity="center"
         android:layout_marginTop="80dp"
-        android:text="盲人导航眼镜"
+        android:text="@string/title"
         android:textColor="#ffffff"
         android:textSize="58sp"/>
 
@@ -20,18 +20,19 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/tv_title"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="100dp"
         android:background="#7066ccff"
-        android:text="开始导航"
+        android:text="@string/start"
         android:textColor="#ffffff"
         android:textSize="24sp" />
+
     <Button
         android:id="@+id/btn_instruction"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:layout_below="@id/btn_start"
-        android:text="使用说明"
+        android:text="@string/instruction"
         android:background="#7066ccff"
         android:textColor="#ffffff"
         android:textSize="24sp" />
@@ -43,28 +44,8 @@
         android:layout_below="@id/btn_instruction"
         android:layout_marginTop="40dp"
         android:background="#7066ccff"
-        android:text="设置"
+        android:text="@string/settings"
         android:textColor="#ffffff"
         android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btn_start_test"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/tv_title"
-        android:layout_marginTop="100dp"
-        android:background="#7066ccff"
-        android:text="开始导航test"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
-<!--    <Button-->
-<!--        android:id="@+id/btn_test"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_below="@id/btn_control"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:text="test"-->
-<!--        android:background="#7066ccff"-->
-<!--        android:textColor="#ffffff"-->
-<!--        android:textSize="24sp"/>-->
 </RelativeLayout>

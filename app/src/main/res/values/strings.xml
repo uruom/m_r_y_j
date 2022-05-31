@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">m_r_y_j</string>
+    <string name="title">盲人导航眼镜</string>
+    <string name="start">开始导航</string>
+    <string name="instruction">使用说明</string>
+    <string name="settings">设置</string>
 </resources>

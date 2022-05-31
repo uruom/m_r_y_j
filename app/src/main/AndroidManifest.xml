@@ -11,16 +11,10 @@
         android:theme="@style/Theme.M_r_y_j">
 
         <activity
-            android:name=".TestActivity"
-            android:exported="false" />
-        <activity
             android:name=".ControlActivity"
             android:exported="false" />
         <activity
             android:name=".InstructionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StartActivity"
             android:exported="false" />
         <activity
             android:name=".DetectActivity"
