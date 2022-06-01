@@ -24,18 +24,14 @@ import android.graphics.Paint;
 import android.media.ExifInterface;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.annotation.RequiresApi;
-
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.io.IOException;
+
 
 public class DetectActivity extends Activity
 {
@@ -45,7 +41,10 @@ public class DetectActivity extends Activity
     private Bitmap bitmap = null;
     private Bitmap yourSelectedImage = null;
 
-    private YoloV5Ncnn yolov5ncnn = new YoloV5Ncnn();
+    private final YoloV5Ncnn yolov5ncnn = new YoloV5Ncnn();
+
+//    private final String[] objectLabelEng = {"person", "car", "bus", "bicycle", "traffic light"};
+//    private final String[] objectLabelChi = {"人", "汽车", "公共汽车", "自行车", "信号灯"};
 
     /** Called when the activity is first created. */
     @Override
@@ -60,44 +59,85 @@ public class DetectActivity extends Activity
             Log.e("DetectActivity", "yolov5ncnn Init failed");
         }
 
-        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = findViewById(R.id.imageView);
 
-        Button buttonImage = (Button) findViewById(R.id.buttonImage);
-        buttonImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent i = new Intent(Intent.ACTION_PICK);
-                i.setType("image/*");
-                startActivityForResult(i, SELECT_IMAGE);
-            }
+        Button buttonImage = findViewById(R.id.buttonImage);
+        buttonImage.setOnClickListener(view -> {
+            Intent i = new Intent(Intent.ACTION_PICK);
+            i.setType("image/*");
+            startActivityForResult(i, SELECT_IMAGE);
         });
 
-        Button buttonDetect = (Button) findViewById(R.id.buttonDetect);
-        buttonDetect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                if (yourSelectedImage == null)
-                    return;
+        Button buttonDetect = findViewById(R.id.buttonDetect);
+        buttonDetect.setOnClickListener(view -> {
+            if (yourSelectedImage == null)
+                return;
 
-                YoloV5Ncnn.Obj[] objects = yolov5ncnn.Detect(yourSelectedImage, false);
+            YoloV5Ncnn.Obj[] objects = yolov5ncnn.Detect(yourSelectedImage, false);
 
-                showObjects(objects);
-            }
+            showObjects(objects);
+
+//                convertObjectsToSentences(objects);
         });
 
-        Button buttonDetectGPU = (Button) findViewById(R.id.buttonDetectGPU);
-        buttonDetectGPU.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                if (yourSelectedImage == null)
-                    return;
+        Button buttonDetectGPU = findViewById(R.id.buttonDetectGPU);
+        buttonDetectGPU.setOnClickListener(view -> {
+            if (yourSelectedImage == null)
+                return;
 
-                YoloV5Ncnn.Obj[] objects = yolov5ncnn.Detect(yourSelectedImage, true);
+            YoloV5Ncnn.Obj[] objects = yolov5ncnn.Detect(yourSelectedImage, true);
 
-                showObjects(objects);
-            }
+            showObjects(objects);
+
+//                convertObjectsToSentences(objects);
         });
     }
+
+//    private void convertObjectsToSentences(YoloV5Ncnn.Obj[] objects) {
+//
+//        String res = null;
+//        int[] numOfObjects = new int[]{0,0,0,0,0};
+//        float probThresh = (float)0.75;
+//
+//        if (objects == null)
+//        {
+//            imageView.setImageBitmap(bitmap);
+//            return;
+//        }
+//
+//        for(int i=0; i < objects.length; ++i){
+//            if(objects[i].prob >= probThresh) {
+//                for(int j=0; j < objectLabelEng.length; ++j){
+//                    if(objects[i].label.equals(objectLabelEng[j])){
+//                        numOfObjects[j]++;
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//
+//        res = "前方有";
+//        for(int j=0; j < numOfObjects.length; ++j){
+//            res += numOfObjects[j] + objectLabelChi[j] + " ";
+//        }
+//
+//        Bitmap rgba = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+//        Canvas canvas = new Canvas(rgba);
+//
+//        Paint textPaint = new Paint();
+//        textPaint.setColor(Color.BLACK);
+//        textPaint.setTextSize(26);
+//        textPaint.setTextAlign(Paint.Align.LEFT);
+//
+//        Paint textBgPaint = new Paint();
+//        textBgPaint.setColor(Color.WHITE);
+//        textBgPaint.setStyle(Paint.Style.FILL);
+//
+//        canvas.drawRect(100, 100, 100, 100, textBgPaint);
+//        canvas.drawText(res, 100, 100, textPaint);
+//        imageView.setImageBitmap(rgba);
+//
+//    }
 
     private void showObjects(YoloV5Ncnn.Obj[] objects)
     {
@@ -138,14 +178,14 @@ public class DetectActivity extends Activity
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(4);
 
-        Paint textbgpaint = new Paint();
-        textbgpaint.setColor(Color.WHITE);
-        textbgpaint.setStyle(Paint.Style.FILL);
+        Paint textBgPaint = new Paint();
+        textBgPaint.setColor(Color.WHITE);
+        textBgPaint.setStyle(Paint.Style.FILL);
 
-        Paint textpaint = new Paint();
-        textpaint.setColor(Color.BLACK);
-        textpaint.setTextSize(26);
-        textpaint.setTextAlign(Paint.Align.LEFT);
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.BLACK);
+        textPaint.setTextSize(26);
+        textPaint.setTextAlign(Paint.Align.LEFT);
 
         for (int i = 0; i < objects.length; i++)
         {
@@ -157,8 +197,8 @@ public class DetectActivity extends Activity
             {
                 String text = objects[i].label + " = " + String.format("%.1f", objects[i].prob * 100) + "%";
 
-                float text_width = textpaint.measureText(text);
-                float text_height = - textpaint.ascent() + textpaint.descent();
+                float text_width = textPaint.measureText(text);
+                float text_height = - textPaint.ascent() + textPaint.descent();
 
                 float x = objects[i].x;
                 float y = objects[i].y - text_height;
@@ -167,9 +207,9 @@ public class DetectActivity extends Activity
                 if (x + text_width > rgba.getWidth())
                     x = rgba.getWidth() - text_width;
 
-                canvas.drawRect(x, y, x + text_width, y + text_height, textbgpaint);
+                canvas.drawRect(x, y, x + text_width, y + text_height, textBgPaint);
 
-                canvas.drawText(text, x, y - textpaint.ascent(), textpaint);
+                canvas.drawText(text, x, y - textPaint.ascent(), textPaint);
             }
         }
 
